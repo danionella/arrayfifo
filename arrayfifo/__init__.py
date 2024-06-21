@@ -83,7 +83,7 @@ class ArrayFIFO:
                 print(f"head: {head}, self.head: {self.head.value}")
                 raise
 
-            if head < tail:
+            if head <= tail:
                 array_bytes = self.view[head:tail]
             else:
                 array_bytes = np.concatenate((self.view[head:], self.view[:tail]))
