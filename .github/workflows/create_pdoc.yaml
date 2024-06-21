@@ -38,7 +38,7 @@ jobs:
       - name: Run pdoc
         run: |
           conda activate docs
-          pdoc --docformat google wholebrain/ -o docs
+          pdoc --docformat google arrayfifo/ -o docs
       - uses: actions/upload-pages-artifact@v1
         with:
           path: docs/
