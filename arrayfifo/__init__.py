@@ -36,7 +36,7 @@ class ArrayFIFO:
             AssertionError: If the size of the byte array exceeds the buffer size.
         """
 
-        array_bytes = array.ravel().data
+        array_bytes = array.ravel().view('byte')
         nbytes = array.nbytes
 
         assert nbytes < self.buffer_size
