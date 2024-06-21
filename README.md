@@ -1,3 +1,5 @@
+[![Python Version](https://img.shields.io/pypi/pyversions/arrayfifo.svg)](https://pypi.org/project/arrayfifo)
+[![PyPI version](https://badge.fury.io/py/arrayfifo.svg)](https://badge.fury.io/py/arrayfifo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # ArrayFIFO
