@@ -2,6 +2,7 @@
 [![PyPI - Version](https://img.shields.io/pypi/v/arrayfifo)](https://pypi.org/project/arrayfifo/)
 [![Conda Version](https://img.shields.io/conda/v/danionella/arrayfifo)](https://anaconda.org/danionella/arrayfifo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![GitHub last commit](https://img.shields.io/github/last-commit/danionella/arrayfifo)
 
 # ArrayFIFO
 
