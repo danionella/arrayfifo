@@ -8,8 +8,9 @@ name: Build and Publish Conda Package
 
 on: 
   workflow_dispatch:
-  release:
-    types: [published]
+    workflows: [Publish Python Package]
+    types:
+      - completed
 
 jobs:
   deploy:
