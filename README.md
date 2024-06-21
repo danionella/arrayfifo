@@ -1,4 +1,4 @@
-![Python Version](https://img.shields.io/pypi/pyversions/arrayfifo.svg)
+![Python Version](https://img.shields.io/badge/python-3.7+-blue)
 [![PyPI - Version](https://img.shields.io/pypi/v/arrayfifo)](https://pypi.org/project/arrayfifo/)
 [![Conda Version](https://img.shields.io/conda/v/danionella/arrayfifo)](https://anaconda.org/danionella/arrayfifo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
