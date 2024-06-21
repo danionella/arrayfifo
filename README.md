@@ -10,7 +10,7 @@ A FIFO buffer (queue) for efficient sharing of numpy arrays between multiple pro
 
 Inspired by [ArrayQueues](https://github.com/portugueslab/arrayqueues). ArrayFIFO uses locks to support more than one producer and comsumer process, and it supports arrays whose shape and dtype can change arbitrarily between queue items.
 
-As with other queues in Python, data is transmitted via `put` and `get` calls. `.put(array, meta=None)` accepts a second parameter for optinal metadata, which can be any Python object, including tuple and dict. It will be serialized and sent through a conventional Queue, so try to keep this small for best performance.
+As with other queues in Python, data is transmitted via `put` and `get` calls. `.put(array, meta=None)` accepts a second parameter for optional metadata, which can be any Python object, including tuple and dict. It will be serialized and sent through a conventional Queue, so try to keep this small for best performance.
 
 ## Usage example
 ```python
