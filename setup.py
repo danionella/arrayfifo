@@ -8,7 +8,7 @@ setup(
     license='MIT',
     author='jlab.berlin',
     author_email='',
-    description='Fast multiprocessing FIFO buffer (queue) for numpy arrays'
+    description='Fast multiprocessing FIFO buffer (queue) for numpy arrays',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
 )
