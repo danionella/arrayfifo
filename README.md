@@ -8,35 +8,26 @@ Inspired by the [ArrayQueues](https://github.com/portugueslab/arrayqueues). Arra
 
 ## Usage example
 ```python
-import multiprocessing as mp
 import numpy as np
+from multiprocessing import Process
 from arrayfifo import ArrayFIFO
 
-class Producer(mp.Process):
-    def __init__(self, queue):
-        super().__init__()
-        self.queue = queue
-    def run(self):
-        for i in range(10):
-            random_shape = np.random.randint(2,10, size=3)
-            array = np.random.randn(*random_shape)
-            self.queue.put(array, meta=i)
-            print(f'produced {type(array)} {array.shape} {array.dtype}; meta: {i}\n')
+def produce(queue):
+    for i in range(10):
+        random_shape = np.random.randint(2,10, size=3)
+        array = np.random.randn(*random_shape)
+        queue.put(array, meta=i)
+        print(f'produced {type(array)} of shape {array.shape} and dtype {array.dtype}; meta: {i}\n')
 
-class Consumer(mp.Process):
-    def __init__(self, queue, p_num):
-        super().__init__()
-        self.queue = queue
-        self.p_num = p_num
-    def run(self):
-        while True:
-            array, meta = self.queue.get()
-            print(f'{self.p_num}: consumed {type(array)} {array.shape} {array.dtype}; meta: {meta}\n')
+def consume(queue, pid):
+    while True:
+        array, meta = queue.get()
+        print(f'consumer {pid} consumed {type(array)} of shape {array.shape} and dtype {array.dtype}; meta: {meta}\n')
 
-que = ArrayFIFO(10e6)
-producer = Producer(que)
-consumers = [Consumer(que, p_num=i) for i in range(3)]
-[c.start() for c in consumers]
+queue = ArrayFIFO(10e6)
+producer = Process(target=produce, args=(queue,))
+consumers = [Process(target=consume, args=(queue, pid)) for pid in range(3)]
+for c in consumers:
+    c.start()
 producer.start()
-
 ```
