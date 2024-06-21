@@ -1,0 +1,39 @@
+{% set name = "ndview" %}
+{% set data = load_setup_py_data(setup_file='../setup.py', from_recipe_dir=True) %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ data.get('version') }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ndview-{{ data.get('version') }}.tar.gz
+
+build:
+  number: 0
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - python >=3.7
+  run:
+    - numpy
+    - python >=3.7
+
+test:
+  imports:
+    - arrayfifo
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: {{ data['url'] }}
+  license: {{ data['license'] }}
+  summary: {{ data['description'] }}
+
+extra:
+  recipe-maintainers:
+    - benju
