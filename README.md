@@ -13,16 +13,16 @@ from multiprocessing import Process
 from arrayfifo import ArrayFIFO
 
 def produce(queue):
-    for i in range(10):
-        random_shape = np.random.randint(2,10, size=3)
+    for i in range(20):
+        random_shape = np.random.randint(5,10, size=3)
         array = np.random.randn(*random_shape)
         queue.put(array, meta=i)
-        print(f'produced {type(array)} of shape {array.shape} and dtype {array.dtype}; meta: {i}\n')
+        print(f'produced {type(array)} {array.shape} {array.dtype}; meta: {i}; hash: {hash(array.tobytes())}\n')
 
 def consume(queue, pid):
     while True:
         array, meta = queue.get()
-        print(f'consumer {pid} consumed {type(array)} of shape {array.shape} and dtype {array.dtype}; meta: {meta}\n')
+        print(f'consumer {pid} consumed {type(array)} {array.shape} {array.dtype}; meta: {meta}; hash: {hash(array.tobytes())}\n')
 
 queue = ArrayFIFO(10e6)
 producer = Process(target=produce, args=(queue,))
