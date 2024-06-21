@@ -39,7 +39,7 @@ class ArrayFIFO:
         array_bytes = array.ravel().view('byte')
         nbytes = array.nbytes
 
-        assert nbytes < self.buffer_size
+        assert nbytes < self.buffer_size, "Array size exceeds buffer size."
 
         with self.put_lock:
             while self._available_space() < nbytes:
@@ -77,12 +77,7 @@ class ArrayFIFO:
             array_info = self.queue.get(**kwargs)
             head = array_info["head"]
             tail = array_info["tail"]
-            try:
-                assert head == self.head.value
-            except AssertionError:
-                print(f"head: {head}, self.head: {self.head.value}")
-                raise
-
+            assert head == self.head.value, f"head: {head}, self.head: {self.head.value}"
             if head <= tail:
                 array_bytes = self.view[head:tail]
             else:
