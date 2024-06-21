@@ -12,6 +12,8 @@ Inspired by [ArrayQueues](https://github.com/portugueslab/arrayqueues). ArrayFIF
 
 As with other queues in Python, data is transmitted via `put` and `get` calls. `.put(array, meta=None)` accepts a second parameter for optional metadata, which can be any Python object, including tuple and dict. It will be serialized and sent through a conventional Queue, so try to keep this small for best performance.
 
+Auto-generated API documentation: https://danionella.github.io/arrayfifo
+
 ## Usage example
 ```python
 import numpy as np
