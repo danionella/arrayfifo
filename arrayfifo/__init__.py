@@ -14,8 +14,8 @@ class ArrayFIFO:
             buffer_size (int): The size of the buffer in bytes.
         """
 
-        self.buffer_size = bytes
-        self.buffer = mp.Array("c", bytes, lock=False)
+        self.buffer_size = int(bytes)
+        self.buffer = mp.Array("c", self.buffer_size, lock=False)
         self._view = None
         self.queue = mp.Manager().Queue()  # manager helps avoid out-of-order problems
         self.get_lock = mp.Lock()
