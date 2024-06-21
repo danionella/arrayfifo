@@ -2,8 +2,8 @@ from setuptools import setup
 
 setup(
     name='arrayfifo',
-    version='0.0.2',
-    packages=[''],
+    version='0.0.3',
+    packages=['arrayfifo', ],
     url='https://github.com/danionella/arrayfifo',
     license='MIT',
     author='jlab.berlin',
