@@ -1,4 +1,4 @@
-{% set name = "ndview" %}
+{% set name = "arrayfifo" %}
 {% set data = load_setup_py_data(setup_file='../setup.py', from_recipe_dir=True) %}
 
 package:
@@ -6,7 +6,7 @@ package:
   version: {{ data.get('version') }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ndview-{{ data.get('version') }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/arrayfifo-{{ data.get('version') }}.tar.gz
 
 build:
   number: 0
